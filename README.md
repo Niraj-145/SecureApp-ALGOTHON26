@@ -48,6 +48,18 @@ graph TD
 
 ---
 
+## 📸 Visual Overview
+
+Here are a few screenshots showcasing the platform in action.
+
+| **Admin Dashboard** | **Security Center** |
+|:---:|:---:|
+| <img src="./docs/assets/admin_dashboard.png" width="400" alt="Admin Dashboard showing statistics and records" /> | <img src="./docs/assets/security_center.png" width="400" alt="Security Center highlighting 4 vulnerabilities" /> |
+| **Login Page** | **Records & Vulnerability Testing** |
+| <img src="./docs/assets/login_page.png" width="400" alt="Login page with demo accounts" /> | <img src="./docs/assets/records_page.png" width="400" alt="Records page demonstrating data isolation" /> |
+
+---
+
 ## 🛠️ Technology Stack
 
 | Layer     | Technology                          |
