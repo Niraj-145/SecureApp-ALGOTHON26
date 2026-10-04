@@ -14,7 +14,7 @@ services:
       - key: SECRET_KEY
         generateValue: true
       - key: FRONTEND_URL
-        value: https://secureapp-frontend.onrender.com
+        value: https://secureapp-algothon26-1.onrender.com
       - key: DEBUG
         value: "false"
       - key: PYTHON_VERSION
@@ -33,4 +33,4 @@ services:
         destination: /index.html
     envVars:
       - key: VITE_API_URL
-        value: https://secureapp-backend.onrender.com
+        value: https://secureapp-algothon26.onrender.com

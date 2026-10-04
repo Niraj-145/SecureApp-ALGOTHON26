@@ -34,8 +34,15 @@ _allowed_origins = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
 ]
-if FRONTEND_URL and FRONTEND_URL not in _allowed_origins:
-    _allowed_origins.append(FRONTEND_URL)
+if FRONTEND_URL:
+    clean_url = FRONTEND_URL.rstrip('/')
+    if clean_url not in _allowed_origins:
+        _allowed_origins.append(clean_url)
+
+# Explicitly ensure the production domain is allowed in case the environment variable fails
+_prod_origin = "https://secureapp-algothon26-1.onrender.com"
+if _prod_origin not in _allowed_origins:
+    _allowed_origins.append(_prod_origin)
 
 app.add_middleware(
     CORSMiddleware,
