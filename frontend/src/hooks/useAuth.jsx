@@ -4,15 +4,40 @@ const AuthContext = createContext(null);
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
-  const [token, setToken] = useState(localStorage.getItem('token'));
+  const [token, setToken] = useState(() => {
+    try {
+      return localStorage.getItem('token') || null;
+    } catch {
+      return null;
+    }
+  });
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (token) {
       try {
         const stored = localStorage.getItem('user');
-        if (stored) setUser(JSON.parse(stored));
-      } catch { /* ignore */ }
+        if (stored) {
+          const parsed = JSON.parse(stored);
+          if (parsed && typeof parsed === 'object' && parsed.id) {
+            setUser(parsed);
+          } else {
+            // Invalid user data — clear auth state
+            localStorage.removeItem('token');
+            localStorage.removeItem('user');
+            setToken(null);
+          }
+        } else {
+          // Token exists but no user data — clear
+          localStorage.removeItem('token');
+          setToken(null);
+        }
+      } catch {
+        // Corrupted localStorage — clear everything
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        setToken(null);
+      }
     }
     setLoading(false);
   }, [token]);
