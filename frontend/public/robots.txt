@@ -1,0 +1,11 @@
+# SecureApp — Authenticated application
+# Only the public pages (login, privacy, terms) should be indexed.
+User-agent: *
+Allow: /login
+Allow: /privacy
+Allow: /terms
+Disallow: /dashboard
+Disallow: /records
+Disallow: /profile
+Disallow: /security
+Disallow: /api/

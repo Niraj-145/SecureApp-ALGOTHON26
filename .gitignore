@@ -1,0 +1,31 @@
+# Node
+node_modules/
+dist/
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.pytest_cache/
+
+# Database (SQLite) — regenerated on startup via seed data
+*.db
+
+# IDE
+.vscode/
+.idea/
+
+# Environment — NEVER commit real .env files
+.env
+.env.*
+*.pem
+venv/
+.venv/
+build/
+*.log
+
+# OS files
+Thumbs.db
+Desktop.ini
